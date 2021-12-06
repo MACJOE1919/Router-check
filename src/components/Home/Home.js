@@ -1,9 +1,8 @@
+import React from "react";
 import { useState } from "react";
-import "./App.css";
-import Navbarr from "./components/Navbar.js";
-import { Switch, Route } from "react-router";
-import Movie from "./components/Movie/Movie.js";
-import Home from "./components/Home/Home.js";
+import MovieAdd from "../AddMovies/AddMovies.js";
+import MovieList from "../MovieList.js";
+
 const moviess = [
   {
     id: 1,
@@ -72,26 +71,19 @@ const moviess = [
     Trailer: "https://www.youtube.com/embed/q5gfx7IMsmM",
   },
 ];
-const App = () => {
+const Home = () => {
   const [title, setTitle] = useState("");
   const [rate, setRate] = useState(0);
 
   const [movies, setMovies] = useState(moviess);
   return (
-    <div className="App">
-      <Navbarr
-        title={title}
-        setTitle={setTitle}
-        rate={rate}
-        setRate={setRate}
-      />
-
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/movie/:id" component={Movie} />
-      </Switch>
+    <div>
+      <div className="Container">
+        <MovieList movies={movies} title={title} rate={rate} />
+      </div>
+      <MovieAdd movies={movies} setMovies={setMovies} />
     </div>
   );
 };
 
-export default App;
+export default Home;

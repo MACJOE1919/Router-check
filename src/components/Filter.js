@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormControl } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Rate } from "antd";
 import "./Filter.css";
 const Filter = ({ title, setTitle, rate, setRate }) => {
